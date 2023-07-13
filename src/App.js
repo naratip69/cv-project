@@ -33,69 +33,135 @@ class App extends Component {
   }
 
   onChange = (e) => {
-    this.setState((valid[e.target.id] = e.target.value));
+    let obj = {};
+    for (let key in this.state.form) {
+      obj[key] = e.target.id === key ? e.target.value : this.state.form[key];
+    }
+    this.setState({
+      form: obj,
+    });
+    // console.log(e.target.id);
+    // console.log(this.state.form);
   };
 
   send = (e) => {
     e.preventDefault();
-    for (key in this.valid) {
-      this.setState((valid[key] = this.state.form[key]));
+    let obj = {};
+    for (let key in this.state.form) {
+      obj[key] = this.state.form[key];
     }
+    this.setState({
+      valid: obj,
+    });
+    // console.log(this.state.valid);
+    e.target.className += "hide";
   };
 
   render() {
     return (
       <div className="App">
-        <form>
-          <div class="general">
+        <form onSubmit={this.send}>
+          <div className="general">
             <h2>General Information</h2>
             <div className="form-row">
               <label htmlFor="name">Name:</label>
-              <input id="name" type="text"></input>
+              <input
+                id="name"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.name}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="email">Email:</label>
-              <input id="email" type="email"></input>
+              <input
+                id="email"
+                type="email"
+                onChange={this.onChange}
+                value={this.state.form.email}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="phone">Phone:</label>
-              <input id="phone" type="tel"></input>
+              <input
+                id="phone"
+                type="tel"
+                onChange={this.onChange}
+                value={this.state.form.phone}
+              ></input>
             </div>
           </div>
-          <div class="study-info">
+          <div className="study-info">
             <h2>Education Experience</h2>
             <div className="form-row">
               <label htmlFor="school">School Name:</label>
-              <input id="school" type="text"></input>
+              <input
+                id="school"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.school}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="study">Title of study:</label>
-              <input id="study" type="text"></input>
+              <input
+                id="study"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.study}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="studyDate">Date of study:</label>
-              <input id="studyDate" type="date"></input>
+              <input
+                id="studyDate"
+                type="date"
+                onChange={this.onChange}
+                value={this.state.form.studyDate}
+              ></input>
             </div>
           </div>
-          <div class="prac-ex">
+          <div className="prac-ex">
             <h2>Practical Experience</h2>
             <div className="form-row">
               <label htmlFor="company">Company Name:</label>
-              <input id="company" type="text"></input>
+              <input
+                id="company"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.company}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="position">Position:</label>
-              <input id="position" type="text"></input>
+              <input
+                id="position"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.position}
+              ></input>
             </div>
             <div className="form-row">
               <label htmlFor="task">Task of job:</label>
-              <textarea id="task" type="text"></textarea>
+              <textarea
+                id="task"
+                type="text"
+                onChange={this.onChange}
+                value={this.state.form.task}
+              ></textarea>
             </div>
             <div className="form-row">
               <label htmlFor="workEx">Working Experience(Years):</label>
-              <input id="workEx" type="number" min="1" value={1}></input>
+              <input
+                id="workEx"
+                type="number"
+                min="1"
+                value={this.state.form.workEx}
+                onChange={this.onChange}
+              ></input>
             </div>
           </div>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
