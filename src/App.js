@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./component/Overview";
+import Overview from "./component/Overview";
 
 class App extends Component {
   constructor() {
@@ -94,7 +96,7 @@ class App extends Component {
           <div className="study-info">
             <h2>Education Experience</h2>
             <div className="form-row">
-              <label htmlFor="school">School Name:</label>
+              <label htmlFor="school">School name:</label>
               <input
                 id="school"
                 type="text"
@@ -124,7 +126,7 @@ class App extends Component {
           <div className="prac-ex">
             <h2>Practical Experience</h2>
             <div className="form-row">
-              <label htmlFor="company">Company Name:</label>
+              <label htmlFor="company">Company name:</label>
               <input
                 id="company"
                 type="text"
@@ -151,7 +153,7 @@ class App extends Component {
               ></textarea>
             </div>
             <div className="form-row">
-              <label htmlFor="workEx">Working Experience(Years):</label>
+              <label htmlFor="workEx">Working experience(Years):</label>
               <input
                 id="workEx"
                 type="number"
@@ -163,6 +165,7 @@ class App extends Component {
           </div>
           <button type="submit">Submit</button>
         </form>
+        <Overview form={this.state.valid} />
       </div>
     );
   }
