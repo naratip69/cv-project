@@ -32,9 +32,16 @@ class App extends Component {
     };
   }
 
-  onChange(e) {
+  onChange = (e) => {
     this.setState((valid[e.target.id] = e.target.value));
-  }
+  };
+
+  send = (e) => {
+    e.preventDefault();
+    for (key in this.valid) {
+      this.setState((valid[key] = this.state.form[key]));
+    }
+  };
 
   render() {
     return (
