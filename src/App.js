@@ -1,6 +1,37 @@
 import React, { Component } from "react";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        school: "",
+        study: "",
+        studyDate: "",
+        company: "",
+        position: "",
+        task: "",
+        workEx: 0,
+      },
+      valid: {
+        name: "",
+        email: "",
+        phone: "",
+        school: "",
+        study: "",
+        studyDate: "",
+        company: "",
+        position: "",
+        task: "",
+        workEx: 0,
+      },
+    };
+  }
+
   render() {
     return (
       <div className="App">
