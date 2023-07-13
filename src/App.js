@@ -32,6 +32,10 @@ class App extends Component {
     };
   }
 
+  onChange(e) {
+    this.setState((valid[e.target.id] = e.target.value));
+  }
+
   render() {
     return (
       <div className="App">
@@ -62,8 +66,8 @@ class App extends Component {
               <input id="study" type="text"></input>
             </div>
             <div className="form-row">
-              <label htmlFor="study-date">Date of study:</label>
-              <input id="study-date" type="date"></input>
+              <label htmlFor="studyDate">Date of study:</label>
+              <input id="studyDate" type="date"></input>
             </div>
           </div>
           <div class="prac-ex">
@@ -81,8 +85,8 @@ class App extends Component {
               <textarea id="task" type="text"></textarea>
             </div>
             <div className="form-row">
-              <label htmlFor="work-ex">Working Experience(Years):</label>
-              <input id="work-ex" type="number" min="1" value={1}></input>
+              <label htmlFor="workEx">Working Experience(Years):</label>
+              <input id="workEx" type="number" min="1" value={1}></input>
             </div>
           </div>
         </form>
