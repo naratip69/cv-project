@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./component/Overview";
 import Overview from "./component/Overview";
+import "./styles/App.css";
 
 class App extends Component {
   constructor() {
@@ -57,6 +58,8 @@ class App extends Component {
     });
     // console.log(this.state.valid);
     e.target.className += "hide";
+    let show = document.querySelector("#show");
+    show.classList.remove("hide");
   };
 
   render() {
